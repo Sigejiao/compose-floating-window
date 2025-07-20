@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.github.only52607.compose.window.ComposeFloatingWindow
+import com.github.only52607.compose.window.app.data.DependencyProvider
 import com.github.only52607.compose.window.app.ui.DialogPermission
 import com.github.only52607.compose.window.app.ui.FloatingWindowContent
 import com.github.only52607.compose.window.app.ui.theme.ComposeFloatingWindowTheme
@@ -32,6 +33,9 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // 初始化依赖
+        DependencyProvider.initialize(applicationContext)
         setContent {
             ComposeFloatingWindowTheme {
                 val showDialogPermission = remember { mutableStateOf(false) }
